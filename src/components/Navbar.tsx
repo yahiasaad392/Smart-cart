@@ -15,10 +15,10 @@ export default function Navbar() {
     <>
       <nav className="glass-panel" style={{ 
         position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)', 
-        width: '90%', maxWidth: '1200px', zIndex: 100, padding: '0.8rem 2rem',
+        width: 'calc(100% - 2rem)', maxWidth: '1200px', zIndex: 100, padding: '0.8rem 1.5rem',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center'
       }}>
-        <Link href="/" style={{ fontSize: '1.5rem', fontWeight: 800 }}>
+        <Link href="/" style={{ fontSize: '1.5rem', fontWeight: 800, zIndex: 102 }}>
           Smart<span style={{ color: 'var(--primary)' }}>Cart</span>
         </Link>
 
@@ -60,7 +60,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="hamburger hidden-desktop" onClick={toggleMenu} style={{ marginLeft: 'auto' }}>
+        <div className={`hamburger hidden-desktop ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} style={{ marginLeft: 'auto', zIndex: 102 }}>
           <span></span>
           <span></span>
           <span></span>
@@ -69,12 +69,6 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${isMenuOpen ? 'open' : ''}`}>
-        <button className="hamburger open" onClick={toggleMenu} style={{ position: 'absolute', top: '2rem', right: '2rem' }}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        
         <Link href="/" className="mobile-menu-link" onClick={toggleMenu}>Home</Link>
         <Link href="/products" className="mobile-menu-link" onClick={toggleMenu}>Products</Link>
         <Link href="/categories" className="mobile-menu-link" onClick={toggleMenu}>Categories</Link>
