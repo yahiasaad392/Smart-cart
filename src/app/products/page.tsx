@@ -5,6 +5,8 @@ export const metadata = {
   title: 'All Products | Route Nebula',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProductsPage({
   searchParams,
 }: {

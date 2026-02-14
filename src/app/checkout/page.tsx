@@ -1,11 +1,11 @@
 "use client";
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { fetchAPI } from '@/lib/api';
 import { useUser } from '@/context/UserContext';
 import { useCart } from '@/context/CartContext';
 
-export default function Checkout() {
+function CheckoutContent() {
   const searchParams = useSearchParams();
   const cartId = searchParams.get('cartId');
   const [details, setDetails] = useState('');
@@ -78,5 +78,13 @@ export default function Checkout() {
          </form>
       </div>
     </div>
+  );
+}
+
+export default function Checkout() {
+  return (
+    <Suspense fallback={<div className="container" style={{paddingTop: '8rem', textAlign: 'center'}}>Loading checkout...</div>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }
