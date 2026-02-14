@@ -23,7 +23,7 @@ export default function Hero() {
           }}>
             New Collection 2024
           </span>
-          <h1 style={{ fontSize: '4rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.5rem' }}>
+          <h1 className="text-hero" style={{ marginBottom: '1.5rem' }}>
             Future of <br />
             <span className="text-gradient">Smart Cart.</span>
           </h1>

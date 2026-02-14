@@ -33,7 +33,7 @@ export default async function ProductsPage({
       
       <div className="glass-panel" style={{ padding: '2rem' }}>
         {products.length > 0 ? (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '2rem' }}>
             {products.map((product: any) => (
               <ProductCard key={product.id || product._id} product={product} />
             ))}

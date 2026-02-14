@@ -1,9 +1,0 @@
-@echo off
-echo Adding changes...
-git add .
-echo Committing fixes...
-git commit -m "Fix build errors: add Suspense to Checkout and dynamic export to Products"
-echo Pushing to GitHub...
-git push origin main
-echo Done!
-pause

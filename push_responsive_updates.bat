@@ -1,0 +1,9 @@
+@echo off
+echo Adding changes...
+git add .
+echo Committing responsive updates...
+git commit -m "Implement mobile responsiveness: Navbar, Hero, Grid, Footer"
+echo Pushing to GitHub...
+git push origin main
+echo Done!
+pause

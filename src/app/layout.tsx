@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: 'Next-generation shopping experience',
 };
 
+import Footer from '@/components/Footer';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,9 +25,10 @@ export default function RootLayout({
         <UserProvider>
           <CartProvider>
             <Navbar />
-            <div style={{ marginTop: '80px' }}>
+            <div style={{ marginTop: '80px', minHeight: 'calc(100vh - 80px - 300px)' }}>
               {children}
             </div>
+            <Footer />
           </CartProvider>
         </UserProvider>
       </body>
