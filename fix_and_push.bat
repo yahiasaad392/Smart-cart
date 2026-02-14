@@ -1,0 +1,9 @@
+@echo off
+echo Adding changes...
+git add .
+echo Committing fix...
+git commit -m "Fix Vercel build error in Hero.tsx"
+echo Pushing to GitHub...
+git push origin main
+echo Done!
+pause

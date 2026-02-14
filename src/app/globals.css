@@ -82,3 +82,14 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+.hidden-mobile-block-md {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hidden-mobile-block-md {
+    display: block !important;
+  }
+}

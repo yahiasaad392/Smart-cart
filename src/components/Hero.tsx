@@ -44,7 +44,7 @@ export default function Hero() {
           </div>
         </div>
         
-        <div style={{ flex: 1, position: 'relative', height: '600px', display: 'none', md: { display: 'block' } }}>
+        <div className="hidden-mobile-block-md" style={{ flex: 1, position: 'relative', height: '600px' }}>
           {}
            <div style={{ 
             position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
