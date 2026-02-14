@@ -15,14 +15,36 @@ interface Product {
   };
 }
 
+import { useWishlist } from '@/context/WishlistContext';
+import { useUser } from '@/context/UserContext';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+
 export default function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
-  const id = product.id || product._id;
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { userToken } = useUser();
+  const id = product.id || product._id || '';
+  const isWishlisted = isInWishlist(id);
+
+  const toggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!userToken) {
+        alert('Please login to use wishlist');
+        return;
+    }
+    if (!id) return;
+
+    if (isWishlisted) {
+      removeFromWishlist(id);
+    } else {
+      addToWishlist(id);
+    }
+  };
 
   return (
     <div className="glass-panel" style={{ 
       overflow: 'hidden', transition: 'transform 0.3s ease',
-      display: 'flex', flexDirection: 'column'
+      display: 'flex', flexDirection: 'column', position: 'relative'
     }}>
       <div style={{ position: 'relative', height: '300px', width: '100%' }}>
         <Image
@@ -38,6 +60,18 @@ export default function ProductCard({ product }: { product: Product }) {
         }}>
           ★ {product.ratingsAverage}
         </div>
+        
+        <button 
+            onClick={toggleWishlist}
+            style={{
+                position: 'absolute', top: '10px', left: '10px',
+                background: 'rgba(255,255,255,0.9)', borderRadius: '50%',
+                width: '35px', height: '35px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: isWishlisted ? 'red' : 'grey', fontSize: '1.2rem', cursor: 'pointer', zIndex: 10
+            }}
+        >
+            {isWishlisted ? <FaHeart /> : <FaRegHeart />}
+        </button>
       </div>
       
       <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>

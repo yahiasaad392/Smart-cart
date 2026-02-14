@@ -183,3 +183,11 @@ button {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -6px);
 }
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,6 +1,7 @@
 import { fetchAPI } from '@/lib/api';
 import ProductCard from '@/components/ProductCard';
 import Hero from '@/components/Hero';
+import CategorySlider from '@/components/CategorySlider';
 import FeaturedCategories from '@/components/FeaturedCategories';
 import Link from 'next/link';
 
@@ -17,7 +18,9 @@ export default async function Home() {
   return (
     <main>
       <Hero />
-      <FeaturedCategories />
+      <CategorySlider />
+      {/* <FeaturedCategories /> - Replaced by Slider or kept as alternative? Keeping both might be redundant, but user asked for slider. Commenting out old static one if it exists or just adding slider above. Let's add slider above. */}
+      {/* FeaturedCategories might be the old static list. START OF USER REQUEST: "i want u to make an slider for categories" */ }
       
       <div className="container" style={{ marginBottom: '4rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: '2rem' }}>

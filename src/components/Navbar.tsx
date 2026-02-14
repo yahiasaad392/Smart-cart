@@ -32,6 +32,9 @@ export default function Navbar() {
         <div className="hidden-mobile-flex-md" style={{ gap: '1rem' }}>
           {userToken ? (
             <>
+              <Link href="/wishlist" style={{ position: 'relative', marginRight: '0.5rem' }}>
+               <span style={{ fontSize: '1.2rem' }}>♥</span>
+              </Link>
               <Link href="/cart" style={{ position: 'relative' }}>
                 Cart
                 {numOfCartItems > 0 && (
@@ -75,6 +78,9 @@ export default function Navbar() {
         
         {userToken ? (
           <>
+            <Link href="/wishlist" className="mobile-menu-link" onClick={toggleMenu}>
+              Wishlist
+            </Link>
             <Link href="/cart" className="mobile-menu-link" onClick={toggleMenu}>
               Cart ({numOfCartItems})
             </Link>
